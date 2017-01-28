@@ -2,24 +2,24 @@ import cv2
 import numpy as np
 
 np.set_printoptions(threshold=np.nan)
+cap = cv2.VideoCapture(0)
 
-vidO=cv2.VideoCapture(0)
-fourCC=cv2.VideoWriter_fourcc(*'XVID')
-vidOutput=cv2.VideoWriter('output.mkv',fourCC,60,(1920,1080))
+# Define the codec and create VideoWriter object
+fourcc = cv2.VideoWriter_fourcc(*'DIVX')
+file = cv2.VideoWriter('output.AVI',fourcc, 20.0, (848,480))
 
-while (vidO.isOpened()):
-    ret,frame=vidO.read()
+while(cap.isOpened()):
+    ret, frame = cap.read()
     if ret==True:
-        vidOutput.write(frame)
-        cv2.imshow('Video Captured',frame)
-        if cv2.waitKey(1) & 0xFF==ord('`'):
+        file.write(frame)
+
+        cv2.imshow('frame',frame)
+        if cv2.waitKey(1) & 0xFF == ord('`1'):
             break
+    else:
+        break
 
-vidO.release()
-vidOutput.release()
+# Release everything if job is finished
+cap.release()
+file.release()
 cv2.destroyAllWindows()
-
-print bool(cv2.waitKey(0))
-print bool(cv2.waitKey(1))
-
-# cv2.VideoCapture(
