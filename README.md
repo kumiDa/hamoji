@@ -6,3 +6,4 @@
 |_| |_|\__,_|_| |_| |_|\___// |_|
                          |__/   
 ```
+This side kick project is aimed at realising the hand gesture recognition task which will be used in assigning respective emoticons.
