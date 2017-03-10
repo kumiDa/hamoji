@@ -82,7 +82,7 @@ while (cap.isOpened()):
         # display frames
         drawEmoji=cv2.resize(drawEmoji,(230,230))#resize emoji picture
         cv2.imshow('emoji', drawEmoji)
-        cv2.imshow('frame1', drawContourOutline)
+        cv2.imshow('contour', drawContourOutline)
         cv2.imshow('frame', frame)
         if cv2.waitKey(1) & 0xFF == ord('`'):#press '`' to release the window and the session eventually
             break
